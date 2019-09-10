@@ -44,13 +44,6 @@ FortranCInterface_HEADER(FCMangle.h
                          SYMBOLS curfit splev splder surfit bispev parder)
 FortranCInterface_VERIFY(CXX)
 
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
-
-set(fitpackpp_SRC
-	fitpackpp/BSplineCurve.cpp
-    fitpackpp/BSplineSurface.cpp)
-
-add_library(fitpackpp STATIC
-	        ${fitpackpp_SRC})
-
-target_link_libraries(fitpackpp fitpack)
+# install
+install(TARGETS fitpack DESTINATION lib)
+install(FILES "${PROJECT_BINARY_DIR}/FCMangle.h" DESTINATION include/fitpack)
