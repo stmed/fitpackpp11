@@ -36,6 +36,10 @@ add_library(fitpack STATIC
 
 enable_language(CXX)
 
+set(GCC_PIC_COMPILE_FLAGS "-fpic")
+
+add_definitions(${GCC_PIC_COMPILE_FLAGS})
+
 # C++ interface
 include(FortranCInterface)
 FortranCInterface_HEADER(FCMangle.h
